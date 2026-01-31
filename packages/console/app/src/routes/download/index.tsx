@@ -5,7 +5,7 @@ import { Header } from "~/component/header"
 import { Footer } from "~/component/footer"
 import { IconCopy, IconCheck } from "~/component/icon"
 import { Faq } from "~/component/faq"
-import desktopAppIcon from "../../asset/lander/opencode-desktop-icon.png"
+import desktopAppIcon from "../../asset/lander/tasia-desktop-icon.png"
 import { Legal } from "~/component/legal"
 import { config } from "~/config"
 import { createSignal, onMount, Show, JSX } from "solid-js"
@@ -80,19 +80,19 @@ export default function Download() {
   }
   return (
     <main data-page="download">
-      <Title>OpenCode | Download</Title>
+      <Title>Tasia | Download</Title>
       <Link rel="canonical" href={`${config.baseUrl}/download`} />
-      <Meta name="description" content="Download OpenCode for macOS, Windows, and Linux" />
+      <Meta name="description" content="Download Tasia for macOS, Windows, and Linux" />
       <div data-component="container">
         <Header hideGetStarted />
 
         <div data-component="content">
           <section data-component="download-hero">
             <div data-component="hero-icon">
-              <img src={desktopAppIcon} alt="OpenCode Desktop" />
+              <img src={desktopAppIcon} alt="Tasia Desktop" />
             </div>
             <div data-component="hero-text">
-              <h1>Download OpenCode</h1>
+              <h1>Download Tasia</h1>
               <p>Available in Beta for macOS, Windows, and Linux</p>
               <Show when={detectedOS()}>
                 <a href={getDownloadHref(getDownloadPlatform(detectedOS()))} data-component="download-button">
@@ -105,7 +105,7 @@ export default function Download() {
 
           <section data-component="download-section">
             <div data-component="section-label">
-              <span>[1]</span> OpenCode Terminal
+              <span>[1]</span> Tasia Terminal
             </div>
             <div data-component="section-content">
               <button
@@ -117,27 +117,27 @@ export default function Download() {
                 </code>
                 <CopyStatus />
               </button>
-              <button data-component="cli-row" onClick={handleCopyClick("npm i -g opencode-ai")}>
+              <button data-component="cli-row" onClick={handleCopyClick("npm i -g tasia-ai")}>
                 <code>
-                  npm i -g <strong>opencode-ai</strong>
+                  npm i -g <strong>tasia-ai</strong>
                 </code>
                 <CopyStatus />
               </button>
-              <button data-component="cli-row" onClick={handleCopyClick("bun add -g opencode-ai")}>
+              <button data-component="cli-row" onClick={handleCopyClick("bun add -g tasia-ai")}>
                 <code>
-                  bun add -g <strong>opencode-ai</strong>
+                  bun add -g <strong>tasia-ai</strong>
                 </code>
                 <CopyStatus />
               </button>
-              <button data-component="cli-row" onClick={handleCopyClick("brew install anomalyco/tap/opencode")}>
+              <button data-component="cli-row" onClick={handleCopyClick("brew install anomalyco/tap/tasia")}>
                 <code>
-                  brew install <strong>anomalyco/tap/opencode</strong>
+                  brew install <strong>anomalyco/tap/tasia</strong>
                 </code>
                 <CopyStatus />
               </button>
-              <button data-component="cli-row" onClick={handleCopyClick("paru -S opencode")}>
+              <button data-component="cli-row" onClick={handleCopyClick("paru -S tasia")}>
                 <code>
-                  paru -S <strong>opencode</strong>
+                  paru -S <strong>tasia</strong>
                 </code>
                 <CopyStatus />
               </button>
@@ -146,12 +146,12 @@ export default function Download() {
 
           <section data-component="download-section">
             <div data-component="section-label">
-              <span>[2]</span> OpenCode Desktop (Beta)
+              <span>[2]</span> Tasia Desktop (Beta)
             </div>
             <div data-component="section-content">
-              <button data-component="cli-row" onClick={handleCopyClick("brew install --cask opencode-desktop")}>
+              <button data-component="cli-row" onClick={handleCopyClick("brew install --cask tasia-desktop")}>
                 <code>
-                  brew install --cask <strong>opencode-desktop</strong>
+                  brew install --cask <strong>tasia-desktop</strong>
                 </code>
                 <CopyStatus />
               </button>
@@ -266,7 +266,7 @@ export default function Download() {
 
           <section data-component="download-section">
             <div data-component="section-label">
-              <span>[3]</span> OpenCode Extensions
+              <span>[3]</span> Tasia Extensions
             </div>
             <div data-component="section-content">
               <div data-component="download-row">
@@ -372,7 +372,7 @@ export default function Download() {
 
           <section data-component="download-section">
             <div data-component="section-label">
-              <span>[4]</span> OpenCode Integrations
+              <span>[4]</span> Tasia Integrations
             </div>
             <div data-component="section-content">
               <div data-component="download-row">
@@ -418,48 +418,48 @@ export default function Download() {
           </div>
           <ul>
             <li>
-              <Faq question="What is OpenCode?">
-                OpenCode is an open source agent that helps you write and run code with any AI model. It's available as
+              <Faq question="What is Tasia?">
+                Tasia is an open source agent that helps you write and run code with any AI model. It's available as
                 a terminal-based interface, desktop app, or IDE extension.
               </Faq>
             </li>
             <li>
-              <Faq question="How do I use OpenCode?">
+              <Faq question="How do I use Tasia?">
                 The easiest way to get started is to read the <a href="/docs">intro</a>.
               </Faq>
             </li>
             <li>
-              <Faq question="Do I need extra AI subscriptions to use OpenCode?">
-                Not necessarily, but probably. You'll need an AI subscription if you want to connect OpenCode to a paid
+              <Faq question="Do I need extra AI subscriptions to use Tasia?">
+                Not necessarily, but probably. You'll need an AI subscription if you want to connect Tasia to a paid
                 provider, although you can work with{" "}
                 <a href="/docs/providers/#lm-studio" target="_blank">
                   local models
                 </a>{" "}
-                for free. While we encourage users to use <A href="/zen">Zen</A>, OpenCode works with all popular
+                for free. While we encourage users to use <A href="/zen">Zen</A>, Tasia works with all popular
                 providers such as OpenAI, Anthropic, xAI etc.
               </Faq>
             </li>
             <li>
-              <Faq question="Can I only use OpenCode in the terminal?">
-                Not anymore! OpenCode is now available as an app for your <a href="/download">desktop</a> and{" "}
+              <Faq question="Can I only use Tasia in the terminal?">
+                Not anymore! Tasia is now available as an app for your <a href="/download">desktop</a> and{" "}
                 <a href="/docs/cli/#web">web</a>!
               </Faq>
             </li>
             <li>
-              <Faq question="How much does OpenCode cost?">
-                OpenCode is 100% free to use. Any additional costs will come from your subscription to a model provider.
-                While OpenCode works with any model provider, we recommend using <A href="/zen">Zen</A>.
+              <Faq question="How much does Tasia cost?">
+                Tasia is 100% free to use. Any additional costs will come from your subscription to a model provider.
+                While Tasia works with any model provider, we recommend using <A href="/zen">Zen</A>.
               </Faq>
             </li>
             <li>
               <Faq question="What about data and privacy?">
-                Your data and information is only stored when you create sharable links in OpenCode. Learn more about{" "}
+                Your data and information is only stored when you create sharable links in Tasia. Learn more about{" "}
                 <a href="/docs/share/#privacy">share pages</a>.
               </Faq>
             </li>
             <li>
-              <Faq question="Is OpenCode open source?">
-                Yes, OpenCode is fully open source. The source code is public on{" "}
+              <Faq question="Is Tasia open source?">
+                Yes, Tasia is fully open source. The source code is public on{" "}
                 <a href={config.github.repoUrl} target="_blank">
                   GitHub
                 </a>{" "}

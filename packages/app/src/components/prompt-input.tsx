@@ -1,4 +1,4 @@
-import { useFilteredList } from "@opencode-ai/ui/hooks"
+import { useFilteredList } from "@tasia-ai/ui/hooks"
 import {
   createEffect,
   on,
@@ -31,20 +31,20 @@ import { useSDK } from "@/context/sdk"
 import { useNavigate, useParams } from "@solidjs/router"
 import { useSync } from "@/context/sync"
 import { useComments } from "@/context/comments"
-import { FileIcon } from "@opencode-ai/ui/file-icon"
-import { MorphChevron } from "@opencode-ai/ui/morph-chevron"
-import { Button } from "@opencode-ai/ui/button"
-import { CycleLabel } from "@opencode-ai/ui/cycle-label"
-import { Icon } from "@opencode-ai/ui/icon"
-import { ProviderIcon } from "@opencode-ai/ui/provider-icon"
-import type { IconName } from "@opencode-ai/ui/icons/provider"
-import { Tooltip, TooltipKeybind } from "@opencode-ai/ui/tooltip"
-import { IconButton } from "@opencode-ai/ui/icon-button"
-import { Select } from "@opencode-ai/ui/select"
-import { getDirectory, getFilename, getFilenameTruncated } from "@opencode-ai/util/path"
-import { useDialog } from "@opencode-ai/ui/context/dialog"
-import { ImagePreview } from "@opencode-ai/ui/image-preview"
-import { ReasoningIcon } from "@opencode-ai/ui/reasoning-icon"
+import { FileIcon } from "@tasia-ai/ui/file-icon"
+import { MorphChevron } from "@tasia-ai/ui/morph-chevron"
+import { Button } from "@tasia-ai/ui/button"
+import { CycleLabel } from "@tasia-ai/ui/cycle-label"
+import { Icon } from "@tasia-ai/ui/icon"
+import { ProviderIcon } from "@tasia-ai/ui/provider-icon"
+import type { IconName } from "@tasia-ai/ui/icons/provider"
+import { Tooltip, TooltipKeybind } from "@tasia-ai/ui/tooltip"
+import { IconButton } from "@tasia-ai/ui/icon-button"
+import { Select } from "@tasia-ai/ui/select"
+import { getDirectory, getFilename, getFilenameTruncated } from "@tasia-ai/util/path"
+import { useDialog } from "@tasia-ai/ui/context/dialog"
+import { ImagePreview } from "@tasia-ai/ui/image-preview"
+import { ReasoningIcon } from "@tasia-ai/ui/reasoning-icon"
 import { ModelSelectorPopover } from "@/components/dialog-select-model"
 import { DialogSelectModelUnpaid } from "@/components/dialog-select-model-unpaid"
 import { useProviders } from "@/hooks/use-providers"
@@ -57,10 +57,10 @@ import { usePermission } from "@/context/permission"
 import { useLanguage } from "@/context/language"
 import { useGlobalSync } from "@/context/global-sync"
 import { usePlatform } from "@/context/platform"
-import { createOpencodeClient, type Message, type Part } from "@opencode-ai/sdk/v2/client"
-import { Binary } from "@opencode-ai/util/binary"
-import { showToast } from "@opencode-ai/ui/toast"
-import { base64Encode } from "@opencode-ai/util/encode"
+import { createTasiaClient, type Message, type Part } from "@tasia-ai/sdk/v2/client"
+import { Binary } from "@tasia-ai/util/binary"
+import { showToast } from "@tasia-ai/ui/toast"
+import { base64Encode } from "@tasia-ai/util/encode"
 
 const ACCEPTED_IMAGE_TYPES = ["image/png", "image/jpeg", "image/gif", "image/webp"]
 const ACCEPTED_FILE_TYPES = [...ACCEPTED_IMAGE_TYPES, "application/pdf"]
@@ -1197,7 +1197,7 @@ export const PromptInput: Component<PromptInputProps> = (props) => {
       }
 
       if (sessionDirectory !== projectDirectory) {
-        client = createOpencodeClient({
+        client = createTasiaClient({
           baseUrl: sdk.url,
           fetch: platform.fetch,
           directory: sessionDirectory,

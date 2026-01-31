@@ -1,7 +1,7 @@
 import { createSignal, createEffect, onMount, onCleanup } from "solid-js"
-import { Dialog } from "@opencode-ai/ui/dialog"
-import { Button } from "@opencode-ai/ui/button"
-import { useDialog } from "@opencode-ai/ui/context/dialog"
+import { Dialog } from "@tasia-ai/ui/dialog"
+import { Button } from "@tasia-ai/ui/button"
+import { useDialog } from "@tasia-ai/ui/context/dialog"
 import { useSettings } from "@/context/settings"
 
 export type Highlight = {

@@ -6,11 +6,11 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
-    "opencode#test": {
+    "tasia#test": {
       "dependsOn": ["^build"],
       "outputs": []
     },
-    "@opencode-ai/app#test": {
+    "@tasia-ai/app#test": {
       "dependsOn": ["^build"],
       "outputs": []
     }

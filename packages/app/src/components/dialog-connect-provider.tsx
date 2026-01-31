@@ -1,16 +1,16 @@
-import type { ProviderAuthAuthorization } from "@opencode-ai/sdk/v2/client"
-import { Button } from "@opencode-ai/ui/button"
-import { useDialog } from "@opencode-ai/ui/context/dialog"
-import { Dialog } from "@opencode-ai/ui/dialog"
-import { Icon } from "@opencode-ai/ui/icon"
-import { IconButton } from "@opencode-ai/ui/icon-button"
-import type { IconName } from "@opencode-ai/ui/icons/provider"
-import { List, type ListRef } from "@opencode-ai/ui/list"
-import { ProviderIcon } from "@opencode-ai/ui/provider-icon"
-import { Spinner } from "@opencode-ai/ui/spinner"
-import { TextField } from "@opencode-ai/ui/text-field"
-import { showToast } from "@opencode-ai/ui/toast"
-import { iife } from "@opencode-ai/util/iife"
+import type { ProviderAuthAuthorization } from "@tasia-ai/sdk/v2/client"
+import { Button } from "@tasia-ai/ui/button"
+import { useDialog } from "@tasia-ai/ui/context/dialog"
+import { Dialog } from "@tasia-ai/ui/dialog"
+import { Icon } from "@tasia-ai/ui/icon"
+import { IconButton } from "@tasia-ai/ui/icon-button"
+import type { IconName } from "@tasia-ai/ui/icons/provider"
+import { List, type ListRef } from "@tasia-ai/ui/list"
+import { ProviderIcon } from "@tasia-ai/ui/provider-icon"
+import { Spinner } from "@tasia-ai/ui/spinner"
+import { TextField } from "@tasia-ai/ui/text-field"
+import { showToast } from "@tasia-ai/ui/toast"
+import { iife } from "@tasia-ai/util/iife"
 import { createMemo, Match, onCleanup, onMount, Switch } from "solid-js"
 import { createStore, produce } from "solid-js/store"
 import { Link } from "@/components/link"
@@ -265,20 +265,20 @@ export function DialogConnectProvider(props: { provider: string }) {
                 return (
                   <div class="flex flex-col gap-6">
                     <Switch>
-                      <Match when={provider().id === "opencode"}>
+                      <Match when={provider().id === "tasia"}>
                         <div class="flex flex-col gap-4">
                           <div class="text-14-regular text-text-base">
-                            {language.t("provider.connect.opencodeZen.line1")}
+                            {language.t("provider.connect.tasiaZen.line1")}
                           </div>
                           <div class="text-14-regular text-text-base">
-                            {language.t("provider.connect.opencodeZen.line2")}
+                            {language.t("provider.connect.tasiaZen.line2")}
                           </div>
                           <div class="text-14-regular text-text-base">
-                            {language.t("provider.connect.opencodeZen.visit.prefix")}
+                            {language.t("provider.connect.tasiaZen.visit.prefix")}
                             <Link href="https://opencode.ai/zen" tabIndex={-1}>
-                              {language.t("provider.connect.opencodeZen.visit.link")}
+                              {language.t("provider.connect.tasiaZen.visit.link")}
                             </Link>
-                            {language.t("provider.connect.opencodeZen.visit.suffix")}
+                            {language.t("provider.connect.tasiaZen.visit.suffix")}
                           </div>
                         </div>
                       </Match>

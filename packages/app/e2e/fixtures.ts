@@ -34,9 +34,9 @@ export const test = base.extend<TestFixtures, WorkerFixtures>({
     await seedProjects(page, { directory })
     await page.addInitScript(() => {
       localStorage.setItem(
-        "opencode.global.dat:model",
+        "tasia.global.dat:model",
         JSON.stringify({
-          recent: [{ providerID: "opencode", modelID: "big-pickle" }],
+          recent: [{ providerID: "tasia", modelID: "big-pickle" }],
           user: [],
           variant: {},
         }),
