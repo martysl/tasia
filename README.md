@@ -1,5 +1,5 @@
 <p align="center">
-<h1>Tasia</h1>
+<h1 align="center">Tasia</h1>
 <p align="center">The open source AI coding agent.</p>
 <p align="center">
   <a href="https://opencode.ai/discord"><img alt="Discord" src="https://img.shields.io/discord/1391832426048651334?style=flat-square&label=discord" /></a>
