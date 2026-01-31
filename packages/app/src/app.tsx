@@ -2,14 +2,14 @@ import "@/index.css"
 import { ErrorBoundary, Show, lazy, type ParentProps } from "solid-js"
 import { Router, Route, Navigate } from "@solidjs/router"
 import { MetaProvider } from "@solidjs/meta"
-import { Font } from "@opencode-ai/ui/font"
-import { MarkedProvider } from "@opencode-ai/ui/context/marked"
-import { DiffComponentProvider } from "@opencode-ai/ui/context/diff"
-import { CodeComponentProvider } from "@opencode-ai/ui/context/code"
-import { I18nProvider } from "@opencode-ai/ui/context"
-import { Diff } from "@opencode-ai/ui/diff"
-import { Code } from "@opencode-ai/ui/code"
-import { ThemeProvider } from "@opencode-ai/ui/theme"
+import { Font } from "@tasia-ai/ui/font"
+import { MarkedProvider } from "@tasia-ai/ui/context/marked"
+import { DiffComponentProvider } from "@tasia-ai/ui/context/diff"
+import { CodeComponentProvider } from "@tasia-ai/ui/context/code"
+import { I18nProvider } from "@tasia-ai/ui/context"
+import { Diff } from "@tasia-ai/ui/diff"
+import { Code } from "@tasia-ai/ui/code"
+import { ThemeProvider } from "@tasia-ai/ui/theme"
 import { GlobalSyncProvider } from "@/context/global-sync"
 import { PermissionProvider } from "@/context/permission"
 import { LayoutProvider } from "@/context/layout"
@@ -22,7 +22,7 @@ import { FileProvider } from "@/context/file"
 import { CommentsProvider } from "@/context/comments"
 import { NotificationProvider } from "@/context/notification"
 import { ModelsProvider } from "@/context/models"
-import { DialogProvider } from "@opencode-ai/ui/context/dialog"
+import { DialogProvider } from "@tasia-ai/ui/context/dialog"
 import { CommandProvider } from "@/context/command"
 import { LanguageProvider, useLanguage } from "@/context/language"
 import { usePlatform } from "@/context/platform"
@@ -43,7 +43,7 @@ function UiI18nBridge(props: ParentProps) {
 
 declare global {
   interface Window {
-    __OPENCODE__?: { updaterEnabled?: boolean; serverPassword?: string; deepLinks?: string[] }
+    __TASIA__?: { updaterEnabled?: boolean; serverPassword?: string; deepLinks?: string[] }
   }
 }
 
@@ -100,7 +100,7 @@ export function AppInterface(props: { defaultUrl?: string }) {
     if (stored) return stored
     if (location.hostname.includes("opencode.ai")) return "http://localhost:4096"
     if (import.meta.env.DEV)
-      return `http://${import.meta.env.VITE_OPENCODE_SERVER_HOST ?? "localhost"}:${import.meta.env.VITE_OPENCODE_SERVER_PORT ?? "4096"}`
+      return `http://${import.meta.env.VITE_TASIA_SERVER_HOST ?? "localhost"}:${import.meta.env.VITE_TASIA_SERVER_PORT ?? "4096"}`
 
     return window.location.origin
   }

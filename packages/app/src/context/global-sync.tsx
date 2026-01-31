@@ -17,11 +17,11 @@ import {
   type VcsInfo,
   type PermissionRequest,
   type QuestionRequest,
-  createOpencodeClient,
-} from "@opencode-ai/sdk/v2/client"
+  createTasiaClient,
+} from "@tasia-ai/sdk/v2/client"
 import { createStore, produce, reconcile, type SetStoreFunction, type Store } from "solid-js/store"
-import { Binary } from "@opencode-ai/util/binary"
-import { retry } from "@opencode-ai/util/retry"
+import { Binary } from "@tasia-ai/util/binary"
+import { retry } from "@tasia-ai/util/retry"
 import { useGlobalSDK } from "./global-sdk"
 import type { InitError } from "../pages/error"
 import {
@@ -39,8 +39,8 @@ import {
   Switch,
   Match,
 } from "solid-js"
-import { showToast } from "@opencode-ai/ui/toast"
-import { getFilename } from "@opencode-ai/util/path"
+import { showToast } from "@tasia-ai/ui/toast"
+import { getFilename } from "@tasia-ai/util/path"
 import { usePlatform } from "./platform"
 import { useLanguage } from "@/context/language"
 import { Persist, persisted } from "@/utils/persist"
@@ -139,12 +139,12 @@ function createGlobalSync() {
   const metaCache = new Map<string, MetaCache>()
   const iconCache = new Map<string, IconCache>()
 
-  const sdkCache = new Map<string, ReturnType<typeof createOpencodeClient>>()
+  const sdkCache = new Map<string, ReturnType<typeof createTasiaClient>>()
   const sdkFor = (directory: string) => {
     const cached = sdkCache.get(directory)
     if (cached) return cached
 
-    const sdk = createOpencodeClient({
+    const sdk = createTasiaClient({
       baseUrl: globalSDK.url,
       fetch: platform.fetch,
       directory,
@@ -984,7 +984,7 @@ function createGlobalSync() {
         globalSDK.client.project.list().then(async (x) => {
           const projects = (x.data ?? [])
             .filter((p) => !!p?.id)
-            .filter((p) => !!p.worktree && !p.worktree.includes("opencode-test"))
+            .filter((p) => !!p.worktree && !p.worktree.includes("tasia-test"))
             .slice()
             .sort((a, b) => a.id.localeCompare(b.id))
           setGlobalStore("project", projects)

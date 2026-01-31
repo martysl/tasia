@@ -1,18 +1,18 @@
 import type { APIEvent } from "@solidjs/start/server"
-import { and, Database, eq, isNull, lt, or, sql } from "@opencode-ai/console-core/drizzle/index.js"
-import { KeyTable } from "@opencode-ai/console-core/schema/key.sql.js"
-import { BillingTable, SubscriptionTable, UsageTable } from "@opencode-ai/console-core/schema/billing.sql.js"
-import { centsToMicroCents } from "@opencode-ai/console-core/util/price.js"
-import { getWeekBounds } from "@opencode-ai/console-core/util/date.js"
-import { Identifier } from "@opencode-ai/console-core/identifier.js"
-import { Billing } from "@opencode-ai/console-core/billing.js"
-import { Actor } from "@opencode-ai/console-core/actor.js"
-import { WorkspaceTable } from "@opencode-ai/console-core/schema/workspace.sql.js"
-import { ZenData } from "@opencode-ai/console-core/model.js"
-import { Black, BlackData } from "@opencode-ai/console-core/black.js"
-import { UserTable } from "@opencode-ai/console-core/schema/user.sql.js"
-import { ModelTable } from "@opencode-ai/console-core/schema/model.sql.js"
-import { ProviderTable } from "@opencode-ai/console-core/schema/provider.sql.js"
+import { and, Database, eq, isNull, lt, or, sql } from "@tasia-ai/console-core/drizzle/index.js"
+import { KeyTable } from "@tasia-ai/console-core/schema/key.sql.js"
+import { BillingTable, SubscriptionTable, UsageTable } from "@tasia-ai/console-core/schema/billing.sql.js"
+import { centsToMicroCents } from "@tasia-ai/console-core/util/price.js"
+import { getWeekBounds } from "@tasia-ai/console-core/util/date.js"
+import { Identifier } from "@tasia-ai/console-core/identifier.js"
+import { Billing } from "@tasia-ai/console-core/billing.js"
+import { Actor } from "@tasia-ai/console-core/actor.js"
+import { WorkspaceTable } from "@tasia-ai/console-core/schema/workspace.sql.js"
+import { ZenData } from "@tasia-ai/console-core/model.js"
+import { Black, BlackData } from "@tasia-ai/console-core/black.js"
+import { UserTable } from "@tasia-ai/console-core/schema/user.sql.js"
+import { ModelTable } from "@tasia-ai/console-core/schema/model.sql.js"
+import { ProviderTable } from "@tasia-ai/console-core/schema/provider.sql.js"
 import { logger } from "./logger"
 import {
   AuthError,
@@ -55,7 +55,7 @@ export async function handler(
   const MAX_RETRIES = 3
   const FREE_WORKSPACES = [
     "wrk_01K46JDFR0E75SG2Q8K172KF3Y", // frank
-    "wrk_01K6W1A3VE0KMNVSCQT43BG2SX", // opencode bench
+    "wrk_01K6W1A3VE0KMNVSCQT43BG2SX", // tasia bench
   ]
 
   try {
@@ -64,10 +64,10 @@ export async function handler(
     const model = opts.parseModel(url, body)
     const isStream = opts.parseIsStream(url, body)
     const ip = input.request.headers.get("x-real-ip") ?? ""
-    const sessionId = input.request.headers.get("x-opencode-session") ?? ""
-    const requestId = input.request.headers.get("x-opencode-request") ?? ""
-    const projectId = input.request.headers.get("x-opencode-project") ?? ""
-    const ocClient = input.request.headers.get("x-opencode-client") ?? ""
+    const sessionId = input.request.headers.get("x-tasia-session") ?? ""
+    const requestId = input.request.headers.get("x-tasia-request") ?? ""
+    const projectId = input.request.headers.get("x-tasia-project") ?? ""
+    const ocClient = input.request.headers.get("x-tasia-client") ?? ""
     logger.metric({
       is_tream: isStream,
       session: sessionId,
@@ -121,10 +121,10 @@ export async function handler(
           })
           headers.delete("host")
           headers.delete("content-length")
-          headers.delete("x-opencode-request")
-          headers.delete("x-opencode-session")
-          headers.delete("x-opencode-project")
-          headers.delete("x-opencode-client")
+          headers.delete("x-tasia-request")
+          headers.delete("x-tasia-session")
+          headers.delete("x-tasia-project")
+          headers.delete("x-tasia-client")
           return headers
         })(),
         body: reqBody,

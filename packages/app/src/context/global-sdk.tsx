@@ -1,5 +1,5 @@
-import { createOpencodeClient, type Event } from "@opencode-ai/sdk/v2/client"
-import { createSimpleContext } from "@opencode-ai/ui/context"
+import { createTasiaClient, type Event } from "@tasia-ai/sdk/v2/client"
+import { createSimpleContext } from "@tasia-ai/ui/context"
 import { createGlobalEmitter } from "@solid-primitives/event-bus"
 import { batch, onCleanup } from "solid-js"
 import { usePlatform } from "./platform"
@@ -12,7 +12,7 @@ export const { use: useGlobalSDK, provider: GlobalSDKProvider } = createSimpleCo
     const platform = usePlatform()
     const abort = new AbortController()
 
-    const eventSdk = createOpencodeClient({
+    const eventSdk = createTasiaClient({
       baseUrl: server.url,
       signal: abort.signal,
       fetch: platform.fetch,
@@ -97,7 +97,7 @@ export const { use: useGlobalSDK, provider: GlobalSDKProvider } = createSimpleCo
       flush()
     })
 
-    const sdk = createOpencodeClient({
+    const sdk = createTasiaClient({
       baseUrl: server.url,
       fetch: platform.fetch,
       throwOnError: true,

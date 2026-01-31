@@ -1,6 +1,6 @@
-# OpenCode Desktop
+# Tasia Desktop
 
-Native OpenCode desktop app, built with Tauri v2.
+Native Tasia desktop app, built with Tauri v2.
 
 ## Development
 
